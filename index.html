@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f6">
+<title>Chuyến giao quà bí mật của mèo con 🐱</title>
+<style>
+:root{--pink:#f4b6cf;--rose:#bd668e;--ink:#684b5d;--cream:#fffaf5;--lav:#e9e1ff;--line:#f5d9e5}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",sans-serif;background:radial-gradient(circle at 10% 8%,#ffe0ec 0,transparent 29%),radial-gradient(circle at 92% 82%,#e9e1ff 0,transparent 30%),linear-gradient(135deg,#fffaf5,#fff0f6);overflow-x:hidden}
+button{font:inherit}
+.page{width:min(940px,100%);margin:auto;padding:20px 16px 45px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;color:#a85d80}
+.pill{border:1px solid var(--line);background:#fff;color:#a85d80;padding:11px 16px;border-radius:999px;cursor:pointer;box-shadow:0 5px 18px #c77d9d18}
+.hero{text-align:center;padding:28px 0 18px}
+.eyebrow{display:inline-block;background:#fff;padding:8px 14px;border-radius:999px;color:#bd7195;font-size:12px;letter-spacing:1.4px}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.15;color:#b65f86;margin:17px auto 12px;max-width:780px}
+.subtitle{max-width:650px;margin:auto;line-height:1.8}
+.cat{font-size:72px;margin:10px 0;display:inline-block;animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-9px) rotate(4deg)}}
+.progress-wrap{margin:10px 0 18px}
+.progress-label{display:flex;justify-content:space-between;font-size:13px;color:#a66b88;margin-bottom:8px}
+.progress{height:8px;border-radius:20px;background:#f5dce7;overflow:hidden}
+.fill{height:100%;width:10%;background:linear-gradient(90deg,#eea7c5,#c9b2f5);transition:width .4s;border-radius:inherit}
+.card{background:#ffffffdf;border:1px solid var(--line);border-radius:28px;padding:clamp(22px,5vw,42px);box-shadow:0 18px 55px #b97b9518;backdrop-filter:blur(8px);min-height:330px}
+.tag{display:inline-block;background:#fff0f6;color:#bd7195;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1px}
+h2{font-size:clamp(24px,4vw,35px);line-height:1.3;color:#b65f86;margin:17px 0}
+.story{font-size:16.5px;line-height:1.95;white-space:pre-line}
+.art{text-align:center;font-size:42px;letter-spacing:7px;margin:22px 0 5px}
+.effect{margin-top:20px;padding:12px 15px;border-radius:16px;background:#fff4f8;color:#9f6681;font-size:13px;line-height:1.7}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px}
+.nav button{border:0;border-radius:999px;padding:13px 18px;cursor:pointer;font-weight:800}
+.back{background:#fff;border:1px solid var(--line)!important;color:#a66b88}
+.next{margin-left:auto;background:linear-gradient(135deg,#efaec8,#d2baf7);color:#fff;box-shadow:0 8px 20px #d89bb533}
+button:disabled{opacity:.4;cursor:not-allowed}
+button:focus-visible{outline:3px solid #9874d2;outline-offset:3px}
+.footer{text-align:center;color:#ad8197;font-size:13px;line-height:1.8;margin-top:26px}
+.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:-1;opacity:.6;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.final-screen{position:fixed;inset:0;z-index:5;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at top,#ffe0ed,#fff8fb 58%,#e9e1ff);text-align:center;overflow:auto}
+.final-inner{max-width:700px;background:#ffffffd9;border:1px solid #f5d9e5;border-radius:30px;padding:clamp(25px,6vw,55px);box-shadow:0 20px 70px #b97b9525}
+.final-cat{font-size:64px}
+.final-inner h2{font-size:clamp(34px,7vw,58px);margin:15px 0}
+.final-sub{line-height:1.8}
+.final-message{font-size:clamp(21px,4.5vw,30px);line-height:1.7;color:#ad527d;font-weight:800;margin:25px 0}
+.final-sign{color:#a56d89}
+.hidden{display:none!important}
+.gallery{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+.gallery img{width:clamp(90px,16vw,145px);height:145px;object-fit:cover;border:3px solid white;border-radius:18px;box-shadow:0 8px 22px #bd668e30}
+.photo-float{position:fixed;z-index:8;bottom:-220px;width:clamp(115px,22vw,190px);height:clamp(140px,27vw,225px);object-fit:cover;border:6px solid white;border-bottom-width:22px;border-radius:8px;box-shadow:0 10px 35px #6f405333;pointer-events:none;animation:photoRise 5.8s cubic-bezier(.2,.7,.25,1) forwards}
+@keyframes photoRise{0%{transform:translateY(0) rotate(var(--tilt)) scale(.72);opacity:0}12%{opacity:1}75%{opacity:1}100%{transform:translateY(-125vh) rotate(calc(var(--tilt) * -1)) scale(1.08);opacity:0}}
+.candle-screen{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 35%,#ffe4ef,#fff6fb 58%,#e7ddff);text-align:center}
+.candle-card{width:min(650px,100%);padding:clamp(24px,5vw,48px);border-radius:30px;background:#ffffffdf;border:1px solid #f5d9e5;box-shadow:0 20px 70px #b97b9525}
+.cake{font-size:clamp(72px,15vw,120px);margin:12px 0;filter:drop-shadow(0 10px 15px #bd668e25)}
+.candle-number{font-size:clamp(36px,8vw,62px);font-weight:900;color:#b65f86;letter-spacing:5px}
+.flame{display:inline-block;animation:flicker .6s ease-in-out infinite alternate}
+@keyframes flicker{from{transform:scale(.9) rotate(-4deg)}to{transform:scale(1.12) rotate(4deg)}}
+.blown .flame{animation:none;opacity:0;transform:scale(.2) translateY(-15px);transition:.45s}
+.candle-btn{border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(135deg,#efaec8,#d2baf7);color:white;font-weight:800;cursor:pointer;box-shadow:0 8px 20px #d89bb533}
+.confetti{position:fixed;z-index:11;top:-20px;pointer-events:none;animation:confettiFall 3.4s linear forwards}
+@keyframes confettiFall{to{transform:translateY(115vh) rotate(720deg);opacity:0}}
+.seed{display:inline-block;animation:sprout 1.3s ease-in-out infinite alternate}
+@keyframes sprout{from{transform:scale(.8) rotate(-5deg)}to{transform:scale(1.15) rotate(5deg)}}
+@media(max-width:520px){.page{padding:15px 12px 30px}.topbar{justify-content:center}.brand{width:100%;text-align:center}.card{border-radius:22px}.story{font-size:16px}.nav button{padding:12px 14px}.art{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="page" id="mainPage">
+  <header class="topbar">
+    <div class="brand">🐾 Tiệm quà nhỏ của mèo con</div>
+    <button class="pill" id="musicButton" type="button" aria-pressed="false">🎹 Bật nhạc piano</button>
+  </header>
+  <section class="hero">
+    <span class="eyebrow">A LITTLE SECRET FOR YOU ♡</span>
+    <h1>Chuyến giao quà bí mật của mèo con</h1>
+    <p class="subtitle">Một hành trình nhỏ dành riêng cho Hải Yến.<br>Hãy mở từng cánh cửa để khám phá những điều bất ngờ nhé! 🌷</p>
+    <div class="cat" aria-label="Mèo con">🐱</div>
+  </section>
+  <div class="progress-wrap">
+    <div class="progress-label"><span id="progressText">Chặng 1 / 10</span><span id="progressPct">10%</span></div>
+    <div class="progress"><div class="fill" id="progressFill"></div></div>
+  </div>
+  <section class="card" aria-live="polite">
+    <span class="tag" id="stageTag">CHẶNG 01</span>
+    <h2 id="stageTitle"></h2>
+    <div class="story" id="stageStory"></div>
+    <div class="art" id="stageArt" aria-hidden="true">🐾 💌 🌷</div>
+    <div class="gallery hidden" id="gallery" aria-label="Năm tấm ảnh kỷ niệm">
+    <img src="./yen-1.jpg" alt="Ảnh sinh nhật 1"><img src="./yen-2.jpg" alt="Ảnh sinh nhật 2">
+    <img src="./yen-3.jpg" alt="Ảnh sinh nhật 3"><img src="./yen-4.jpg" alt="Ảnh sinh nhật 4"><img src="./yen-5.jpg" alt="Ảnh sinh nhật 5">
+  </div>
+    <div class="effect hidden" id="effectBox"></div>
+    <div class="effect hidden" id="smallReveal"></div>
+  </section>
+  <nav class="nav" aria-label="Điều hướng câu chuyện">
+    <button class="back" id="backButton" type="button" disabled>← Quay lại</button>
+    <button class="next" id="nextButton" type="button">🐾 Bắt đầu chuyến phiêu lưu</button>
+  </nav>
+  <footer class="footer">Được giao bằng tất cả sự dễ thương của một bạn mèo con ♡<br>Made with love, just for Hải Yến</footer>
+</main>
+
+<div class="final-screen hidden" id="finalScreen">
+  <div class="final-inner">
+    <div class="final-cat">🐱🎀💐</div>
+    <h2 id="finalTitle">Happy Birthday, Hải Yến!</h2>
+    <p class="final-sub" id="finalSubtitle">Một tuổi mới — một hành trình mới — thật nhiều điều xinh đẹp đang chờ cậu.</p>
+    <p class="final-message" id="finalMessage">Mong cậu luôn có một lý do để mỉm cười, một nơi để trở về và những ước mơ để tiếp tục bước tới.</p>
+    <p class="final-sign" id="finalSignature">♡ Gửi Yến bằng tất cả sự chân thành ♡</p>
+    <button class="pill" id="restartButton" type="button">↺ Đọc lại chuyến phiêu lưu</button>
+  </div>
+</div>
+
+<div class="candle-screen hidden" id="candleScreen">
+  <div class="candle-card" id="candleCard">
+    <div style="font-size:42px">🎀 Một điều ước dành cho Yến 🎀</div>
+    <h2 style="margin-bottom:4px">Chào tuổi 22!</h2>
+    <p>Nhắm mắt lại một chút, nghĩ về điều ước đẹp nhất của cậu nhé.</p>
+    <div class="candle-number">TUỔI 22</div>
+    <div id="candleRow" style="display:flex;justify-content:center;flex-wrap:wrap;gap:2px;font-size:clamp(13px,2.5vw,20px);margin:10px auto;max-width:390px"><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span><span class="flame">🕯️</span></div>
+    <div class="cake" id="birthdayCake">🎂</div>
+    <p id="candleHint">Khi sẵn sàng, hãy thổi nến tuổi 22 💗</p>
+    <button class="candle-btn" id="blowButton" type="button">🌬️ Thổi nến tuổi 22!</button>
+  </div>
+</div>
+<audio id="audio" loop preload="none"><source src="./piano.mp3" type="audio/mpeg"></audio>
+
+<script>
+const stages = [
+  {
+    "title": "Một vị khách bất ngờ 🐾",
+    "button": "🐾 Bắt đầu chuyến phiêu lưu",
+    "story": "Meo meo! Xin chào Hải Yến! 🐾\n\nƠ, Yến có nghe thấy tiếng bước chân nhỏ xíu nào không? Là tớ đây! Một chú mèo con vừa nhận được nhiệm vụ bí mật và đang đứng trước cửa nhà Yến với chiếc nơ hồng ngay ngắn, bộ ria mép được chải thật đẹp cùng một phong thư được buộc bằng sợi ruy băng.\n\nSáng nay, tớ nhận được một lá thư rất lạ. Bên ngoài chỉ có đúng một dòng chữ:\n\n‘Gửi người xứng đáng nhận được một chút dịu dàng vào ngày đặc biệt.’\n\nBên trong là bản đồ dẫn đến một món quà. Nhưng có một điều kiện: tớ phải tự mình mang món quà đến tận tay người nhận và không được mở nó trước khi hoàn thành hành trình.\n\nTớ đã hỏi người giao nhiệm vụ rằng người ấy là ai. Và cậu biết người ấy trả lời thế nào không?\n\n‘Hải Yến.’\n\nThế nên hôm nay, tớ đến đây không chỉ để giao quà đâu. Tớ còn mang theo một vài điều muốn nói, một chút bất ngờ và một bí mật mà có lẽ Yến chưa từng biết.\n\nYến đã sẵn sàng đi cùng tớ chưa?",
+    "effect": "Mèo con chớp mắt, đuôi ve vẩy, phong thư rung nhẹ. Khi bấm nút, những dấu chân mèo màu hồng xuất hiện dẫn sang chặng tiếp theo."
+  },
+  {
+    "title": "Tấm bản đồ có mùi bánh ngọt 🍰",
+    "button": "🍓 Tìm dấu chân tiếp theo",
+    "story": "Meo! Chúng ta bắt đầu thôi!\n\nYến nhìn này, tớ vừa tìm thấy một tấm bản đồ ở dưới chiếc hộp nhỏ. Trên bản đồ có mười dấu chân mèo, mỗi dấu chân dẫn đến một điều bất ngờ. Nhưng kỳ lạ thật, dấu chân đầu tiên lại nằm ngay cạnh một chiếc bánh sinh nhật bé xíu.\n\nTớ nghĩ mãi mới hiểu ra: có lẽ hành trình hôm nay không chỉ là đi tìm một món quà. Nó còn là dịp để nhắc một người rằng ngày người ấy xuất hiện trên thế giới này vốn đã là một điều đáng vui rồi.\n\nSinh nhật đôi khi khiến chúng ta mong chờ những món quà thật lớn, những lời chúc thật hay hay một ngày thật hoàn hảo. Nhưng tớ nghĩ điều quý giá hơn cả là cảm giác mình được nhớ đến, được quan tâm và được chúc những điều tốt đẹp bằng sự chân thành.\n\nVì vậy, Yến à, trước khi chúng ta đi xa hơn, tớ muốn chúc Yến một điều đầu tiên:\n\nMong hôm nay Yến được vui theo cách Yến thích nhất. Không cần phải cố tỏ ra thật ổn, không cần phải làm vừa lòng tất cả mọi người. Chỉ cần Yến cảm thấy thoải mái, được cười thật nhiều và có một ngày thuộc về riêng mình.\n\nCòn bây giờ… bánh sinh nhật đâu rồi nhỉ? Tớ ngửi thấy mùi bánh rồi đó!",
+    "effect": "Những ngôi sao lấp lánh xuất hiện quanh bánh kem, một trái tim nhỏ bay lên rồi tan thành bụi sáng."
+  },
+  {
+    "title": "Lá thư đầu tiên từ tớ 💌",
+    "button": "💗 Cất lá thư vào tim",
+    "story": "Yến ơi, tớ nghĩ đã đến lúc mở phong thư đầu tiên rồi.\n\nTrong này không có mật khẩu, cũng chẳng có câu đố khó nhằn nào cả. Chỉ có một lời chúc mà tớ đã muốn gửi đến Yến bằng cách thật đặc biệt.\n\nChúc mừng sinh nhật Hải Yến! 🎂\n\nChúc Yến tuổi mới có thật nhiều niềm vui, có đủ sức khỏe để làm những điều mình yêu thích và có đủ bình yên để tận hưởng những điều giản dị nhất.\n\nMong những buổi sáng của Yến bắt đầu bằng một tâm trạng dễ chịu. Mong những ngày bận rộn vẫn có một khoảng nghỉ nhỏ dành cho bản thân. Mong trên đường đi đến những điều Yến mong muốn, Yến sẽ gặp được những người tử tế, những cơ hội tốt và cả những điều bất ngờ khiến Yến phải bật cười.\n\nTớ cũng mong những điều Yến đang âm thầm cố gắng sẽ dần có kết quả. Những mục tiêu tưởng như còn xa sẽ từng bước trở nên gần hơn. Những ước mơ Yến chưa dám kể với ai sẽ có ngày được thực hiện.\n\nVà nếu có một ngày mọi thứ không diễn ra như ý, tớ mong Yến đừng vội cho rằng mình chưa đủ tốt.\n\nBởi vì một ngày chưa thành công không có nghĩa là cả hành trình thất bại. Một lần vấp ngã cũng không thể quyết định giá trị của một người.\n\nYến cứ chậm lại khi mệt, nghỉ ngơi khi cần và bắt đầu lại khi sẵn sàng nhé.\n\nTuổi mới không cần phải rực rỡ trong từng khoảnh khắc. Chỉ cần khi nhìn lại, Yến có thể mỉm cười và nói rằng: ‘Mình đã sống một năm thật đáng quý.’",
+    "effect": "Lá thư gấp lại thành hình trái tim. Một dòng chữ nhỏ hiện ra: “Còn 7 điều bất ngờ nữa đang chờ Yến…”"
+  },
+  {
+    "title": "Khu vườn của những điều ước 🌷",
+    "button": "🌼 Gieo một điều ước",
+    "story": "Meo meo! Tớ tìm được khu vườn bí mật rồi!\n\nỞ đây có những bông hoa nhỏ, những chiếc đèn lung linh và rất nhiều chiếc lọ thủy tinh. Mỗi chiếc lọ chứa một điều ước. Có chiếc ước về những chuyến đi xa, có chiếc ước về thành công, có chiếc lại chỉ mong một ngày được ngủ thật ngon mà không phải lo lắng điều gì.\n\nTớ thấy những điều ước ấy thật dễ thương.\n\nYến biết không, đôi khi chúng ta lớn lên và bắt đầu nghĩ rằng mình phải làm được thật nhiều thứ. Phải giỏi hơn, phải trưởng thành hơn, phải đạt được những cột mốc mà người khác mong đợi.\n\nNhưng tớ hy vọng tuổi mới sẽ cho Yến thêm một điều quan trọng: quyền được lựa chọn cuộc sống mà mình thực sự mong muốn.\n\nNếu Yến thích một con đường khác biệt, mong Yến đủ can đảm để bước đi. Nếu Yến cần thêm thời gian, mong Yến không tự trách mình vì tiến chậm hơn người khác. Nếu Yến có một ước mơ nhỏ bé mà chẳng ai hiểu, mong Yến vẫn giữ cho nó một góc trong trái tim.\n\nKhông phải điều gì đẹp đẽ cũng cần được cả thế giới công nhận mới có giá trị.\n\nCó những thành tựu chỉ riêng Yến hiểu mình đã vất vả đến nhường nào. Có những ngày vượt qua được thôi đã là một chiến thắng đáng tự hào.\n\nTớ sẽ gửi vào khu vườn này một điều ước dành riêng cho Yến:\n\nMong Yến luôn tìm được lý do để yêu cuộc sống, nhưng cũng đủ dịu dàng với chính mình trong những ngày chưa thể yêu mọi thứ.",
+    "effect": "Yến bấm nút để một hạt giống phát sáng nảy mầm thành bông hoa. Bông hoa mở ra, để lộ dấu chân mèo tiếp theo."
+  },
+  {
+    "title": "Trạm nghỉ của mèo con và những kỷ niệm 📸",
+    "button": "📷 Mở cuốn sổ kỷ niệm",
+    "story": "Phù… tớ xin phép nghỉ chân một chút nhé! Đi giao quà mà phải băng qua cả khu vườn, trèo qua mấy chiếc hộp và chạy theo những cánh bướm thì cũng mệt lắm chứ!\n\nNhưng nhìn xem, tớ tìm thấy một cuốn sổ ảnh.\n\nTrong cuốn sổ này có những khung hình trống. Tớ nghĩ chúng đang chờ Yến lấp đầy bằng những khoảnh khắc của riêng mình.\n\nCó thể là một bức ảnh chụp trong ngày vui vẻ nhất. Một món ăn ngon đến mức Yến muốn ăn thêm lần nữa. Một chuyến đi mà Yến vẫn nhớ mãi. Một người bạn đã cùng Yến trải qua những ngày khó quên. Hoặc đơn giản là một bức hình chẳng có gì đặc biệt nhưng mỗi lần nhìn lại, Yến vẫn thấy vui.\n\nNếu đây là món quà sinh nhật ngoài đời, tớ sẽ dành một góc nhỏ cho những bức ảnh Yến thích nhất. Không cần quá nhiều ảnh, cũng không cần phải là những khoảnh khắc hoàn hảo.\n\nBởi vì những kỷ niệm đáng quý nhất đôi khi lại đến từ những điều bình thường.\n\nTớ mong năm nay Yến có thêm thật nhiều bức ảnh như thế. Thật nhiều ngày được đi đây đó, thật nhiều lần cười đến đau cả bụng, thật nhiều cuộc gặp khiến trái tim ấm áp.\n\nVà nếu có những ngày buồn, mong Yến vẫn có thể mở lại cuốn sổ của mình, nhìn những điều đã đi qua và nhận ra rằng cuộc sống đã từng dành cho mình rất nhiều khoảnh khắc đẹp.\n\nÀ, Yến có muốn tự thêm một tấm ảnh vào cuốn sổ này không?",
+    "effect": "Hiện một khung ảnh để Yến xem các hình đã được chuẩn bị. Có thể thêm ảnh mèo, ảnh phong cảnh, hoặc ảnh của Hải Yến nếu người tạo món quà có ảnh được phép sử dụng."
+  },
+  {
+    "title": "Cơn mưa sao băng và lời nhắn chưa gửi ✨",
+    "button": "🌠 Gửi lời ước lên trời",
+    "story": "Yến ơi, trời tối mất rồi. Tớ cứ mải chơi trong khu vườn nên suýt quên mất nhiệm vụ chính!\n\nMay mà trên bầu trời vừa xuất hiện một cơn mưa sao băng. Tớ nghe nói mỗi ngôi sao đều có thể giữ một lời nhắn chưa kịp nói.\n\nVậy nên tớ muốn gửi Yến thêm vài điều.\n\nTớ mong Yến luôn có những người mà mình có thể thoải mái là chính mình. Những người không bắt Yến phải vui vẻ mọi lúc, không khiến Yến cảm thấy mình phải chứng minh giá trị của bản thân, và vẫn sẵn lòng lắng nghe ngay cả khi Yến chẳng biết phải bắt đầu kể từ đâu.\n\nTớ mong Yến biết rằng không phải lúc nào mạnh mẽ cũng là tự mình giải quyết mọi chuyện. Đôi khi, mạnh mẽ còn là dám nói rằng mình mệt, dám nhờ giúp đỡ và dám rời khỏi những điều khiến mình tổn thương.\n\nNếu có lúc Yến cảm thấy mình đang đi quá chậm, hãy nhớ rằng mỗi người có một nhịp sống riêng. Hoa nở vào những thời điểm khác nhau, và chẳng bông hoa nào cần xin lỗi vì đã nở muộn.\n\nTớ không thể hứa rằng tuổi mới của Yến sẽ không có những ngày khó khăn. Nhưng tớ thật lòng mong rằng trong những ngày ấy, Yến sẽ có đủ kiên nhẫn với chính mình và đủ hy vọng để tin rằng mọi chuyện vẫn có thể tốt lên.\n\nCòn điều ước của tớ dành cho ngôi sao sáng nhất kia là:\n\nHy vọng Hải Yến sẽ ngày càng hạnh phúc với chính con người mình đang trở thành.",
+    "effect": "Nhạc nền nhỏ dần trong vài giây, sao băng lướt qua màn hình và một dòng chữ hiện ra: “Có một điều tớ vẫn chưa nói…”"
+  },
+  {
+    "title": "Chiếc hộp mang tên “Yến xứng đáng” 🎀",
+    "button": "🎁 Mở món quà dành cho Yến",
+    "story": "Meo! Tớ tìm thấy chiếc hộp tiếp theo rồi!\n\nTrên nắp hộp có dòng chữ: ‘Dành cho người thường quên mất rằng mình cũng xứng đáng được yêu thương.’\n\nYến có thấy dòng chữ này quen không?\n\nCó thể trong cuộc sống, đôi khi Yến dành rất nhiều sự quan tâm cho người khác. Yến nhớ những điều họ thích, lo lắng khi họ buồn, cố gắng để mọi người cảm thấy vui vẻ. Nhưng tớ hy vọng Yến cũng dành cho bản thân mình sự quan tâm tương tự.\n\nYến không cần phải luôn hữu ích mới xứng đáng được trân trọng. Không cần phải đạt thành tích thật tốt mới có quyền tự hào. Không cần phải luôn mỉm cười mới khiến người khác muốn ở bên.\n\nNgay cả trong những ngày Yến chẳng làm được gì nhiều, Yến vẫn là Yến. Một người có cảm xúc, có những điểm mạnh, có những điều còn đang học hỏi và có quyền được nghỉ ngơi.\n\nNếu hôm nay có ai đó khiến Yến buồn, mong Yến đừng để lời nói của họ trở thành cách Yến nhìn nhận chính mình.\n\nNếu một điều gì đó không thành công, mong Yến đừng dùng một lần thất bại để phủ nhận tất cả những nỗ lực trước đó.\n\nVà nếu có lúc Yến cảm thấy mình chưa đủ tốt, hãy thử nhìn lại bản thân bằng ánh mắt dịu dàng hơn một chút nhé.\n\nTớ không biết chiếc hộp này có thể làm được gì lớn lao. Nhưng nếu nó có thể nhắc Yến rằng bản thân Yến cũng đáng được quan tâm, thì tớ nghĩ chuyến đi này đã có ý nghĩa rồi.",
+    "effect": "Hộp quà bật mở, bên trong là những trái tim nhỏ cùng dòng chữ: “Đừng quên dành cho mình một chút dịu dàng nhé.”"
+  },
+  {
+    "title": "Bí mật đằng sau chuyến giao quà 🤍",
+    "button": "🤍 Tớ còn một điều cuối cùng",
+    "story": "Yến à, chúng ta đã đi qua một khu vườn, một bầu trời đầy sao và cả một chiếc hộp quà. Tớ nghĩ đã đến lúc kể cho Yến nghe một bí mật.\n\nThật ra, ban đầu tớ chỉ định mang đến một lời chúc sinh nhật thật ngắn.\n\nMột câu ‘Chúc mừng sinh nhật nhé!’ rồi thêm vài chiếc bánh kem, mấy hình trái tim và một chú mèo con cho đáng yêu.\n\nNhưng sau đó tớ nghĩ, nếu đã muốn dành tặng Yến một điều gì đó, tại sao không làm nó trở nên đặc biệt hơn một chút?\n\nThế là tớ tưởng tượng ra chuyến phiêu lưu này. Tớ muốn Yến không chỉ nhìn thấy một lời chúc, mà còn có cảm giác như đang mở từng cánh cửa nhỏ, mỗi cánh cửa lại chứa một điều tốt đẹp được chuẩn bị dành riêng cho mình.\n\nTớ muốn mỗi lần Yến bấm tiếp, Yến lại tìm thấy một điều gì đó đáng yêu. Có thể là một bông hoa, một lá thư, một tấm ảnh hay một lời nhắn mà Yến muốn đọc lại sau này.\n\nVà tớ cũng muốn gửi gắm một điều rất đơn giản:\n\nĐược ai đó nhớ đến vào một ngày đặc biệt là một niềm vui. Nhưng được quan tâm bằng sự chân thành, không đòi hỏi phải đáp lại, còn là một điều đáng quý hơn nữa.\n\nVì vậy, Yến không cần phải nghĩ xem mình nên phản ứng thế nào, cũng không cần phải tìm một lời đáp thật hay.\n\nNếu Yến mỉm cười, tớ vui rồi. Nếu Yến thấy món quà dễ thương, tớ càng vui hơn. Và nếu sau này Yến tình cờ nhớ đến chú mèo con này trong một ngày bình thường, tớ hy vọng đó cũng sẽ là một ký ức ấm áp.",
+    "effect": "Màn hình chuyển sang nền tối dịu, một chiếc phong thư xuất hiện với dấu niêm phong hình trái tim."
+  },
+  {
+    "title": "Lá thư cuối cùng gửi Hải Yến 💌",
+    "button": "🔐 Mở cánh cửa bí mật cuối cùng",
+    "story": "Yến thân mến,\n\nNếu Yến đã đi đến đây, chắc hẳn chú mèo nhỏ của tớ đã không làm nhiệm vụ quá tệ rồi nhỉ? Meo meo!\n\nTớ muốn dành lá thư cuối cùng này để nói một lời chúc dài hơn một chút.\n\nChúc Yến tuổi mới có thể gặp được phiên bản mà mình mong muốn, nhưng cũng biết yêu quý phiên bản hiện tại của chính mình.\n\nMong Yến có đủ dũng khí để theo đuổi những điều khiến trái tim mình rung động, đủ tỉnh táo để lựa chọn những gì thật sự phù hợp và đủ bình yên để buông bỏ những điều đã không còn thuộc về mình.\n\nMong Yến có những người bạn tốt, những cuộc trò chuyện chân thành và những mối quan hệ khiến Yến cảm thấy an toàn khi là chính mình.\n\nMong những ngày mưa của Yến không kéo dài quá lâu. Mong những ngày nắng mang theo nhiều tin vui. Mong những lần thất vọng sẽ dần trở thành bài học, những lần cố gắng sẽ mang lại kết quả xứng đáng và những lần bắt đầu lại sẽ mở ra những cánh cửa mới.\n\nNhưng trên hết, tớ mong Yến đừng chỉ chờ đến khi đạt được một điều gì đó mới cho phép mình hạnh phúc.\n\nHãy vui vì một ngày bình thường diễn ra thật êm đềm. Hãy tự thưởng cho mình một món ăn ngon sau những giờ bận rộn. Hãy chụp ảnh khi thấy mình xinh đẹp, đi đến nơi mình thích khi có cơ hội và nghỉ ngơi mà không cảm thấy có lỗi.\n\nCuộc sống không chỉ nằm ở đích đến. Nó còn nằm trong những ngày chúng ta đi qua, những người chúng ta gặp và những điều nhỏ bé làm trái tim mình ấm lên.\n\nCảm ơn Yến vì đã dành một chút thời gian cho chuyến phiêu lưu này.\n\nVà chúc mừng sinh nhật nhé, Hải Yến. Mong rằng khi khép lại trang này, Yến sẽ mang theo một nụ cười thật nhẹ nhàng.",
+    "effect": "Phong thư được mở ra, ánh sáng hồng lan khắp màn hình. Tiếng chuông nhỏ vang lên trước khi chuyển sang chặng cuối."
+  },
+  {
+    "title": "Món quà bí mật dành riêng cho Yến 🎂",
+    "button": "💖 Nhận lời chúc sinh nhật",
+    "story": "Meo meo meo! Cuối cùng chúng ta cũng đến đích rồi!\n\nTớ đã hoàn thành nhiệm vụ. Chiếc nơ vẫn còn nguyên, phong thư đã được giao tận nơi, và quan trọng nhất là tớ đã có cơ hội gửi đến Yến tất cả những lời chúc mà tớ chuẩn bị từ đầu chuyến đi.\n\nNhưng khoan đã… hình như vẫn còn một món quà chưa được mở!\n\nYến hãy nhìn chiếc hộp trước mặt nhé. Nó không quá lớn, cũng chẳng được trang trí cầu kỳ. Nhưng tớ đã cẩn thận đặt vào đó một lời nhắn cuối cùng.\n\nHải Yến à, chúc mừng sinh nhật! 🎂💗\n\nTớ chúc Yến một tuổi mới thật dịu dàng với nhiều niềm vui chân thành, nhiều điều may mắn và những khoảnh khắc khiến Yến cảm thấy cuộc sống thật đáng yêu.\n\nMong những điều tốt đẹp sẽ tìm được đường đến với Yến. Mong những người thương quý Yến sẽ luôn có cơ hội ở bên và cùng Yến tạo ra những kỷ niệm đẹp.\n\nMong những ước mơ trong lòng Yến không chỉ nằm yên trên giấy, mà sẽ dần trở thành những điều Yến có thể chạm đến. Và mong dù cuộc sống đưa Yến đến đâu, Yến vẫn giữ được sự ấm áp, những nét đáng yêu và niềm vui riêng của mình.\n\nTớ không biết chính xác năm tới sẽ mang đến những gì. Có thể sẽ có những bất ngờ tuyệt vời, những cơ hội mới, những ngày vui và cả vài thử thách cần vượt qua.\n\nNhưng tớ hy vọng khi bước vào tuổi mới, Yến sẽ tin tưởng bản thân hơn một chút, yêu quý mình nhiều hơn một chút và không quên rằng mình đã đi được một quãng đường đáng tự hào.\n\nCảm ơn Yến vì đã trở thành người nhận món quà nhỏ này.\n\nTớ mong hôm nay sẽ là một ngày thật đẹp với Yến. Và nếu chuyến phiêu lưu của chú mèo con có thể khiến ngày sinh nhật ấy trở nên đặc biệt hơn dù chỉ một chút, thì đó chính là món quà tuyệt nhất mà tớ có thể nhận lại rồi.\n\nCuối cùng, tớ muốn nói một câu thôi…\n\nChúc mừng sinh nhật, Hải Yến. Chúc Yến luôn bình an, luôn được yêu thương và luôn tìm thấy những lý do nhỏ bé để mỉm cười. 🐱💗\n\nMeo! Nhiệm vụ hoàn thành. Nhưng nếu Yến muốn, chúng ta vẫn có thể gặp lại nhau trong một chuyến phiêu lưu khác nhé!",
+    "effect": ""
+  }
+];
+const finalScreenContent = {"title": "Happy Birthday, Hải Yến!", "subtitle": "Một tuổi mới — một hành trình mới — thật nhiều điều xinh đẹp đang chờ cậu.", "message": "Mong cậu luôn có một lý do để mỉm cười, một nơi để trở về và những ước mơ để tiếp tục bước tới.", "signature": "♡ Gửi Yến bằng tất cả sự chân thành ♡"};
+let current = 0;
+let musicPlaying = false;
+const $ = id => document.getElementById(id);
+const tag = $("stageTag"), title = $("stageTitle"), story = $("stageStory"), art = $("stageArt");
+const back = $("backButton"), next = $("nextButton"), gallery = $("gallery");
+const effectBox = $("effectBox"), smallReveal = $("smallReveal");
+const audio = $("audio"), musicButton = $("musicButton");
+
+const artForStage = [
+  "🐱 💌 🎀", "🗺️ 🍰 🐾", "💌 💗 ✨", "🌱 🌷 🦋", "📸 🐱 🌷",
+  "🌠 🌙 ✨", "🎁 💗 🎀", "🤍 🐾 💌", "🔐 💌 🌸", "🐱 💐 🎂"
+];
+const effectForStage = [
+  "Mèo con chớp mắt, đuôi ve vẩy, phong thư rung nhẹ. Khi bấm nút, những dấu chân mèo màu hồng xuất hiện dẫn sang chặng tiếp theo.",
+  "Những ngôi sao lấp lánh xuất hiện quanh bánh kem, một trái tim nhỏ bay lên rồi tan thành bụi sáng.",
+  "Lá thư gấp lại thành hình trái tim. Một dòng chữ nhỏ hiện ra: “Còn 7 điều bất ngờ nữa đang chờ Yến…”",
+  "Yến bấm nút để một hạt giống phát sáng nảy mầm thành bông hoa. Bông hoa mở ra, để lộ dấu chân mèo tiếp theo.",
+  "Hiện một khung ảnh để Yến xem các hình đã được chuẩn bị. Có thể thêm ảnh mèo, ảnh phong cảnh, hoặc ảnh của Hải Yến nếu người tạo món quà có ảnh được phép sử dụng.",
+  "Nhạc nền nhỏ dần trong vài giây, sao băng lướt qua màn hình và một dòng chữ hiện ra: “Có một điều tớ vẫn chưa nói…”",
+  "Hộp quà bật mở, bên trong là những trái tim nhỏ cùng dòng chữ: “Đừng quên dành cho mình một chút dịu dàng nhé.”",
+  "Màn hình chuyển sang nền tối dịu, một chiếc phong thư xuất hiện với dấu niêm phong hình trái tim.",
+  "Phong thư được mở ra, ánh sáng hồng lan khắp màn hình. Tiếng chuông nhỏ vang lên trước khi chuyển sang chặng cuối.",
+  "Nhiệm vụ hoàn thành! Mèo con đã giao món quà đến Hải Yến."
+];
+
+function render() {
+  const s = stages[current];
+  tag.textContent = `CHẶNG ${String(current + 1).padStart(2, "0")} · ${s.title.split(" ").slice(0,3).join(" ").toUpperCase()}`;
+  title.textContent = s.title;
+  story.textContent = s.story;
+  art.textContent = artForStage[current];
+  gallery.classList.toggle("hidden", current !== 4);
+  effectBox.classList.add("hidden");
+  smallReveal.classList.add("hidden");
+  $("progressText").textContent = `Chặng ${current + 1} / ${stages.length}`;
+  const pct = Math.round((current + 1) / stages.length * 100);
+  $("progressPct").textContent = `${pct}%`;
+  $("progressFill").style.width = `${pct}%`;
+  back.disabled = current === 0;
+  next.textContent = s.button;
+  if (current === 9) next.textContent = "💖 Nhận lời chúc sinh nhật";
+}
+
+function specialInteraction() {
+  effectBox.textContent = stages[current].effect || effectForStage[current];
+  effectBox.classList.remove("hidden");
+  if (current === 2) {
+    smallReveal.textContent = "Còn 7 điều bất ngờ nữa đang chờ Yến…";
+    smallReveal.classList.remove("hidden");
+    art.textContent = "💌 ➜ 💗 ✨";
+  } else if (current === 3) {
+    art.innerHTML = '<span class="seed">🌱</span> ✨ 🌷';
+    setTimeout(() => { if (current === 3) art.textContent = "🌷 🐾 ✨"; }, 900);
+  } else if (current === 4) {
+    gallery.classList.remove("hidden");
+  } else if (current === 5) {
+    audio.volume = 0.35;
+    smallReveal.textContent = "Có một điều tớ vẫn chưa nói…";
+    smallReveal.classList.remove("hidden");
+    art.textContent = "🌠 🌙 💫";
+  } else if (current === 6) {
+    art.textContent = "🎁 💗 💗 💗";
+    smallReveal.textContent = "Đừng quên dành cho mình một chút dịu dàng nhé.";
+    smallReveal.classList.remove("hidden");
+  } else if (current === 7) {
+    document.body.style.background = "linear-gradient(135deg,#f5eaf5,#e8e0f8)";
+    art.textContent = "💌 🤍 ✨";
+  } else if (current === 8) {
+    art.textContent = "💌 💖 ✨";
+  } else if (current === 9) {
+    $("candleScreen").classList.remove("hidden");
+  }
+}
+
+function showFinalScreen() {
+  $("finalTitle").textContent = finalScreenContent.title;
+  $("finalSubtitle").textContent = finalScreenContent.subtitle;
+  $("finalMessage").textContent = finalScreenContent.message;
+  $("finalSignature").textContent = finalScreenContent.signature;
+  $("finalScreen").classList.remove("hidden");
+}
+
+next.addEventListener("click", () => {
+  floatPhotos();
+  if (current === 9) {
+    specialInteraction();
+    return;
+  }
+  specialInteraction();
+  current++;
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+back.addEventListener("click", () => {
+  if (current > 0) current--;
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("restartButton").addEventListener("click", () => {
+  $("finalScreen").classList.add("hidden");
+  $("candleScreen").classList.add("hidden");
+  current = 0;
+  document.body.style.background = "";
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+musicButton.addEventListener("click", async () => {
+  if (!musicPlaying) {
+    try {
+      await audio.play();
+      musicPlaying = true;
+      musicButton.textContent = "🎵 Tắt nhạc piano";
+      musicButton.setAttribute("aria-pressed","true");
+    } catch (e) {
+      alert("Chưa phát được nhạc. Hãy tải file piano.mp3 lên cùng thư mục với index.html rồi thử lại nhé!");
+    }
+  } else {
+    audio.pause();
+    musicPlaying = false;
+    musicButton.textContent = "🎹 Bật nhạc piano";
+    musicButton.setAttribute("aria-pressed","false");
+  }
+});
+audio.addEventListener("error", () => {
+  musicPlaying = false;
+  musicButton.textContent = "🎹 Bật nhạc piano";
+  musicButton.setAttribute("aria-pressed","false");
+});
+
+function floatPhotos() {
+  // Mỗi lần mở thư/chuyển chặng, năm tấm ảnh lần lượt bay lên như ảnh polaroid.
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      const photo = document.createElement("img");
+      photo.src = `./yen-${i + 1}.jpg`;
+      photo.alt = `Kỷ niệm sinh nhật ${i + 1}`;
+      photo.className = "photo-float";
+      photo.style.left = `${8 + i * 18}%`;
+      photo.style.setProperty("--tilt", `${[-12, 8, -6, 11, -9][i]}deg`);
+      photo.style.animationDelay = `${i * 0.12}s`;
+      document.body.appendChild(photo);
+      setTimeout(() => photo.remove(), 6500);
+    }, i * 180);
+  }
+}
+function confettiBurst() {
+  const bits = ["💗","✨","🎀","🌸","♡","🎉"];
+  for (let i=0;i<42;i++) {
+    const el=document.createElement("span");
+    el.className="confetti";
+    el.textContent=bits[Math.floor(Math.random()*bits.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDelay=(Math.random()*.8)+"s";
+    el.style.fontSize=(14+Math.random()*20)+"px";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),4500);
+  }
+}
+$("blowButton").addEventListener("click", () => {
+  const screen=$("candleScreen"), card=$("candleCard");
+  card.classList.add("blown");
+  document.querySelectorAll("#candleRow .flame").forEach((flame, i) => {
+    setTimeout(() => { flame.textContent = "🕯️"; flame.style.opacity = "0.3"; }, i * 25);
+  });
+  $("birthdayCake").textContent="🎂💨";
+  $("candleHint").textContent="Phùùù! Chúc điều ước tuổi 22 của Yến sẽ thành hiện thực! 💖";
+  $("blowButton").disabled=true;
+  $("blowButton").textContent="✨ Điều ước đã được gửi đi";
+  confettiBurst();
+  floatPhotos();
+  setTimeout(() => {
+    screen.classList.add("hidden");
+    card.classList.remove("blown");
+    $("blowButton").disabled=false;
+    $("blowButton").textContent="🌬️ Thổi nến tuổi 22!";
+    $("candleHint").textContent="Khi sẵn sàng, hãy thổi nến tuổi 22 💗";
+    $("birthdayCake").textContent="🎂";
+    document.querySelectorAll("#candleRow .flame").forEach(flame => { flame.style.opacity="1"; });
+    showFinalScreen();
+  }, 2600);
+});
+function createHeart() {
+  const el = document.createElement("span");
+  el.className = "heart";
+  el.textContent = ["♡","♥","✿","୨୧"][Math.floor(Math.random()*4)];
+  el.style.left = Math.random()*100 + "vw";
+  el.style.fontSize = (14 + Math.random()*18) + "px";
+  el.style.animationDuration = (7 + Math.random()*6) + "s";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 14000);
+}
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(createHeart, 1200);
+render();
+</script>
+</body>
+</html>
