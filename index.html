@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe8f0">
+<meta name="description" content="Chuyến giao quà bí mật của mèo con — một món quà sinh nhật dành riêng cho Hải Yến.">
+<title>Chuyến giao quà bí mật của mèo con 🐾</title>
+<style>
+:root{--pink:#ffe8f0;--pink2:#ffd0df;--rose:#d95d87;--ink:#5b3b4a;--cream:#fffaf5;--lav:#eee7ff;--mint:#e2f6ed}
+*{box-sizing:border-box}html{min-height:100%;background:var(--pink)}body{margin:0;min-height:100vh;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;background:radial-gradient(circle at 12% 10%,#fff 0 2px,transparent 3px),radial-gradient(circle at 88% 22%,#fff9 0 3px,transparent 4px),linear-gradient(145deg,#fff1f6,#f7efff 58%,#fff6e9);background-size:140px 140px,180px 180px,auto;display:flex;align-items:center;justify-content:center;padding:18px}
+button{font:inherit;cursor:pointer;border:0}button:focus-visible{outline:3px solid #9b72d0;outline-offset:3px}
+.app{width:min(760px,100%);margin:auto}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 auto 12px;max-width:660px;font-size:.88rem;color:#8b6576}.pill{background:#ffffffb8;border:1px solid #fff;border-radius:999px;padding:8px 12px;box-shadow:0 4px 14px #87516a12}
+.progress{height:7px;background:#ffffffb8;border-radius:99px;overflow:hidden;margin:0 auto 16px;max-width:660px}.bar{height:100%;width:10%;background:linear-gradient(90deg,#f59dbb,#b9a4f4);border-radius:99px;transition:width .4s}
+.card{position:relative;overflow:hidden;max-width:660px;margin:auto;background:#fffdfaf2;border:2px solid #fff;border-radius:30px;padding:clamp(22px,5vw,46px);box-shadow:0 18px 60px #9b6b8520;min-height:430px;display:flex;flex-direction:column;align-items:center;text-align:center;animation:appear .35s ease}
+@keyframes appear{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
+.cat{font-size:clamp(62px,13vw,100px);line-height:1.2;filter:drop-shadow(0 6px 0 #f9d7e3);margin:5px 0 12px;user-select:none}
+.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:#c16a8c;font-weight:800;margin:0 0 8px}
+h1{font-size:clamp(1.65rem,5vw,2.55rem);line-height:1.15;margin:0 0 18px;color:#a84670}
+.story{font-size:clamp(1rem,2.8vw,1.12rem);line-height:1.85;white-space:pre-line;max-width:520px;margin:0 auto 22px}
+.letter{background:#fff4f7;border:1px dashed #e6a3ba;border-radius:18px;padding:18px 20px;text-align:left;width:100%;max-width:520px;line-height:1.8;margin:2px auto 20px;box-shadow:inset 0 0 0 5px #fff9}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:16px;width:100%}.primary,.secondary{border-radius:999px;padding:13px 21px;font-weight:800;transition:transform .15s,box-shadow .15s}.primary{color:#fff;background:linear-gradient(120deg,#e879a0,#b49be9);box-shadow:0 7px 0 #c6a2c0}.secondary{background:#fff0f5;color:#a84670;border:1px solid #f5cad9}.primary:hover,.secondary:hover{transform:translateY(-2px)}.primary:active,.secondary:active{transform:translateY(1px);box-shadow:none}
+.note{font-size:.84rem;color:#9a7b88;margin:14px auto 0;max-width:500px}.hidden{display:none!important}
+.choice{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:5px 0 15px}.choice button{padding:10px 14px;background:#f5efff;border:1px solid #e0d4fa;border-radius:999px;color:#765a9c}
+.photo-placeholder{width:100%;max-width:450px;min-height:150px;border:2px dashed #edb3c7;border-radius:18px;display:grid;place-items:center;padding:20px;background:#fff6f9;margin:8px auto 20px;color:#a86b83}
+#photoInput{max-width:100%;margin-top:10px}
+.footer{text-align:center;font-size:.8rem;color:#a28191;margin:14px auto 0}
+.heart{position:fixed;pointer-events:none;animation:float 2.6s ease-out forwards;z-index:10}@keyframes float{from{opacity:0;transform:translateY(20px) scale(.6)}15%{opacity:1}to{opacity:0;transform:translateY(-160px) rotate(18deg) scale(1.2)}}
+.final{background:linear-gradient(145deg,#fff0f5,#f1eaff,#fff8e9)}.final h1{font-size:clamp(2.2rem,8vw,4rem)}.final .cat{font-size:clamp(78px,18vw,130px)}
+@media(max-width:480px){body{padding:10px}.card{border-radius:24px;min-height:480px;padding:22px 18px}.topline{font-size:.78rem}.pill{padding:7px 9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="topline"><span class="pill">🐾 Mèo con giao quà</span><span class="pill" id="stageCount">Chặng 1 / 10</span></div>
+  <div class="progress" aria-label="Tiến trình câu chuyện"><div class="bar" id="bar"></div></div>
+  <section class="card" id="card" aria-live="polite">
+    <div class="cat" id="cat" aria-hidden="true">🐱</div>
+    <p class="eyebrow" id="eyebrow">Một chuyến đi nho nhỏ</p>
+    <h1 id="title">Một vị khách bất ngờ</h1>
+    <p class="story" id="story"></p>
+    <div id="extra"></div>
+    <div class="actions">
+      <button class="secondary hidden" id="backBtn" type="button">← Quay lại</button>
+      <button class="secondary" id="musicBtn" type="button" aria-pressed="false">♫ Bật nhạc piano</button>
+      <button class="primary" id="nextBtn" type="button">Mở chặng tiếp theo →</button>
+    </div>
+    <p class="note" id="note">Một món quà nhỏ đang chờ Yến ở cuối hành trình ✨</p>
+  </section>
+  <p class="footer">Được làm bằng thật nhiều yêu thương 💗</p>
+</main>
+<audio id="music" loop preload="none">
+  <!-- Thay piano.mp3 bằng bản nhạc bạn có quyền sử dụng; để trống thì nút nhạc sẽ hướng dẫn cách thêm nhạc. -->
+</audio>
+<script>
+const stages = [
+ {cat:"🐱🎁",eyebrow:"Chặng 1 · Bắt đầu",title:"Một vị khách bất ngờ",story:"Meo meo~ Xin chào Yến! Tớ là một chú mèo con đưa thư, hôm nay tớ nhận được một nhiệm vụ cực kỳ bí mật.\\n\\nTớ phải giao một món quà đặc biệt cho một người rất đáng quý. Trên chiếc hộp chỉ có một cái tên: Hải Yến. Là cậu đó! 💌",note:"Yến có muốn cùng tớ khám phá chuyến giao quà này không?"},
+ {cat:"🗺️🐾",eyebrow:"Chặng 2 · Lên đường",title:"Tấm bản đồ có mùi bánh ngọt",story:"Tớ tìm thấy một tấm bản đồ nhỏ, thơm mùi bánh mới nướng. Trên bản đồ có những dấu chân mèo, vài ngôi sao và một trái tim màu hồng.\\n\\nMỗi dấu chân dẫn tớ đến một điều dễ thương mà tớ muốn gửi đến Yến. Đi thôi nào! ✨",note:"Bước chân tiếp theo đang đợi chúng mình."},
+ {cat:"💌🐈",eyebrow:"Chặng 3 · Lá thư đầu tiên",title:"Lá thư đầu tiên từ tớ",story:"Yến à,\\n\\nCó những người chỉ cần xuất hiện thôi cũng khiến một ngày bình thường trở nên đáng nhớ hơn. Tớ mong tuổi mới của Yến sẽ có thật nhiều ngày như thế: nhẹ nhàng, ấm áp và đầy những điều khiến cậu mỉm cười.\\n\\nThân gửi, mèo con đưa thư 🐾"},
+ {cat:"🌷🌼",eyebrow:"Chặng 4 · Điều ước",title:"Khu vườn của những điều ước",story:"Tớ đã đến một khu vườn nhỏ, nơi mỗi bông hoa giữ một điều ước. Tớ chọn cho Yến một bông hoa bình yên, một bông hoa may mắn và một bông hoa can đảm.\\n\\nMong cậu luôn đủ dịu dàng với chính mình, đủ dũng cảm để thử điều mới và đủ kiên nhẫn để chờ những điều tốt đẹp nở hoa. 🌸"},
+ {cat:"☕🐾",eyebrow:"Chặng 5 · Nghỉ chân",title:"Trạm nghỉ của mèo con và những kỷ niệm",story:"Đường còn một chút nữa, nên tớ dừng chân bên chiếc ghế nhỏ, nhấp một ngụm sữa ấm và nghĩ về những khoảnh khắc đáng quý.\\n\\nTớ mong Yến sẽ luôn có những người khiến cậu thấy được lắng nghe, những câu chuyện để kể mãi và những kỷ niệm dịu dàng để nhớ lại khi cần một cái ôm. 🤍"},
+ {cat:"🌠🐈",eyebrow:"Chặng 6 · Điều chưa gửi",title:"Cơn mưa sao băng và lời nhắn chưa gửi",story:"Đêm xuống, bầu trời bỗng sáng lên bởi một cơn mưa sao băng. Tớ tranh thủ gửi một lời nhắn mà mình đã giữ trong tim:\\n\\nYến không cần phải hoàn hảo mới xứng đáng được yêu thương. Cậu xứng đáng được nghỉ ngơi, được bắt đầu lại, được vui vì những điều nhỏ xíu và được tự hào về chính mình. 💫"},
+ {cat:"🎀📦",eyebrow:"Chặng 7 · Mở hộp",title:"Chiếc hộp mang tên “Yến xứng đáng”",story:"Tớ tìm thấy chiếc hộp màu hồng ở cuối khu vườn. Trên nắp hộp có dòng chữ: “Yến xứng đáng”.\\n\\nBên trong không phải vàng bạc đâu, mà là những điều tớ muốn Yến nhớ: cậu xứng đáng với sự tử tế, những cơ hội tốt, tình bạn chân thành, niềm vui bình dị và cả những giấc mơ lớn lao. 💗"},
+ {cat:"🔐🐱",eyebrow:"Chặng 8 · Bí mật được hé lộ",title:"Bí mật đằng sau chuyến giao quà",story:"Meo! Tớ sắp bật mí bí mật lớn nhất đây. Món quà này không phải để nhắc Yến rằng cậu phải trở thành ai khác.\\n\\nNó chỉ muốn nhắc cậu rằng chính con người hiện tại của Yến đã rất đáng quý rồi. Chuyến đi của tớ chỉ là một cách nhỏ xíu để gửi lời chúc ấy đến cậu. 🎁"},
+ {cat:"💌🌙",eyebrow:"Chặng 9 · Lá thư cuối",title:"Lá thư cuối cùng gửi Hải Yến",story:"Yến thân mến,\\n\\nChúc cậu bước sang tuổi mới với trái tim nhẹ nhõm hơn, nhiều tiếng cười hơn và thật nhiều điều để mong đợi. Khi có ngày mệt mỏi, mong cậu nhớ rằng mình đã đi qua rất nhiều chuyện và vẫn đang tiếp tục tiến về phía trước.\\n\\nMong những điều tốt đẹp tìm được đường đến với Yến, theo cách dịu dàng nhất.\\n\\nThương gửi, mèo con 🐾"},
+ {cat:"🎂🎉🐱",eyebrow:"Chặng 10 · Món quà dành riêng",title:"Món quà bí mật dành riêng cho Yến",story:"Chúc mừng sinh nhật, Hải Yến! 🎂💖\\n\\nMong cậu luôn có một lý do để mỉm cười, một nơi để trở về và những ước mơ để tiếp tục bước tới.\\n\\nCảm ơn Yến vì đã là chính mình. Chúc tuổi mới của cậu ngập tràn bình yên, yêu thương và những bất ngờ thật xinh đẹp!",final:true}
+];
+let current=0, audioReady=false;
+const $=id=>document.getElementById(id);
+function render(){
+ const s=stages[current]; $("cat").textContent=s.cat;$("eyebrow").textContent=s.eyebrow;$("title").textContent=s.title;$("story").textContent=s.story;
+ $("stageCount").textContent=`Chặng ${current+1} / ${stages.length}`;$("bar").style.width=((current+1)/stages.length*100)+"%";
+ $("backBtn").classList.toggle("hidden",current===0);
+ $("nextBtn").textContent=s.final?"↻ Đọc lại từ đầu":"Mở chặng tiếp theo →";
+ $("note").textContent=s.final?"Hãy gửi lời chúc này đến người đặc biệt 💗":"Một món quà nhỏ đang chờ Yến ở cuối hành trình ✨";
+ $("card").classList.toggle("final",!!s.final);
+ $("extra").innerHTML="";
+ if(current===4){
+   const box=document.createElement("div");box.className="photo-placeholder";
+   box.innerHTML='<div>📷 <strong>Góc kỷ niệm của Yến</strong><br><small>Nếu muốn, chọn ảnh để xem ngay trên thiết bị này (ảnh không được tải lên máy chủ).</small><br><input id="photoInput" type="file" accept="image/*" aria-label="Chọn ảnh kỷ niệm"></div>';
+   $("extra").appendChild(box);
+   box.querySelector("#photoInput").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;const img=document.createElement("img");img.alt="Ảnh kỷ niệm được chọn";img.style.cssText="max-width:100%;max-height:300px;border-radius:14px;margin-top:12px";img.src=URL.createObjectURL(f);box.appendChild(img);});
+ }
+ if(s.final){const btn=document.createElement("button");btn.className="secondary";btn.textContent="💖 Rải tim";btn.onclick=hearts;$("extra").appendChild(btn);hearts();}
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function hearts(){for(let i=0;i<16;i++){const h=document.createElement("span");h.className="heart";h.textContent=["💗","💕","✨","🌸","💖"][Math.floor(Math.random()*5)];h.style.left=(5+Math.random()*90)+"vw";h.style.top=(55+Math.random()*35)+"vh";h.style.fontSize=(18+Math.random()*20)+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),2700);}}
+$("nextBtn").addEventListener("click",()=>{if(current===stages.length-1){current=0;}else current++;render();});
+$("backBtn").addEventListener("click",()=>{if(current>0)current--;render();});
+$("musicBtn").addEventListener("click",async()=>{
+ const audio=$("music");
+ if(!audio.querySelector("source")&&!audio.src){alert("Để bật nhạc, hãy thêm file piano.mp3 vào cùng thư mục rồi cập nhật thẻ audio trong index.html. Nút nhạc cần được bấm chủ động để phù hợp với trình duyệt.");return;}
+ try{if(audio.paused){await audio.play();$("musicBtn").textContent="♫ Tắt nhạc";$("musicBtn").setAttribute("aria-pressed","true");}else{audio.pause();$("musicBtn").textContent="♫ Bật nhạc piano";$("musicBtn").setAttribute("aria-pressed","false");}}catch(e){alert("Trình duyệt chưa phát được nhạc. Hãy thử bấm lại hoặc kiểm tra file piano.mp3.");}
+});
+render();
+</script>
+</body>
+</html>
