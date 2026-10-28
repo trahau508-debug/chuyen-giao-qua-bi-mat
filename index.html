@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe8f1">
+<title>Chuyến giao quà bí mật của mèo con 🐱</title>
+<style>
+:root{--pink:#ff8fb8;--deep:#c94f83;--cream:#fff9fc;--ink:#56384a;--lav:#f0eaff;--mint:#e8fff6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 10%,#fff 0,transparent 30%),linear-gradient(135deg,#fff0f6,#f8f1ff 55%,#fff8e9);overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0}.app{width:min(900px,94vw);margin:0 auto;padding:24px 0 42px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{font-weight:900;color:var(--deep);letter-spacing:.2px}.sound{background:#fff9;border:1px solid #f3c6da;border-radius:999px;padding:10px 14px;color:var(--deep);font-weight:800}
+.progress-wrap{height:8px;border-radius:99px;background:#fff;overflow:hidden;margin:0 0 22px;box-shadow:0 2px 10px #d98eaf22}.progress{height:100%;width:10%;background:linear-gradient(90deg,#ff9cbe,#c5a5ff);transition:width .4s}
+.card{position:relative;background:#ffffffd9;border:1px solid #fff;box-shadow:0 18px 60px #b36a8b1c;border-radius:30px;padding:clamp(22px,5vw,48px);min-height:570px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;backdrop-filter:blur(10px)}
+.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:#c46d97;font-weight:900;margin:0 0 10px}.hero-emoji{font-size:clamp(4rem,12vw,7rem);line-height:1.1;filter:drop-shadow(0 8px 6px #d886a933);animation:bob 3s ease-in-out infinite}.cat{display:inline-block;animation:wiggle 2.4s ease-in-out infinite}.card h1{font-size:clamp(1.8rem,5vw,3.1rem);line-height:1.15;margin:18px 0 14px;color:#b9477c}.card p{font-size:clamp(1rem,2.5vw,1.14rem);line-height:1.8;max-width:650px;margin:0 auto 18px}.note{background:#fff1f7;border:1px dashed #f1a9c7;padding:13px 17px;border-radius:18px;max-width:620px;margin:4px auto 20px;font-size:.95rem}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:24px;width:100%}.primary,.secondary{padding:14px 22px;border-radius:999px;font-weight:900;transition:transform .2s,box-shadow .2s}.primary{background:linear-gradient(135deg,#ff8fb8,#e77aa7);color:white;box-shadow:0 8px 20px #e77aa744}.secondary{background:#fff;color:#b9477c;border:1px solid #f4bfd5}.primary:hover,.secondary:hover{transform:translateY(-2px);box-shadow:0 10px 24px #bd6e972b}.tiny{font-size:.82rem;color:#a06d85;margin-top:12px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;max-width:690px;margin:12px auto 18px}.photo{aspect-ratio:3/4;background:linear-gradient(145deg,#ffe3ef,#f0e8ff);padding:7px;border-radius:20px;box-shadow:0 8px 20px #a45c7920;transform:rotate(var(--r));animation:appear .7s both}.photo img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}.photo .missing{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#ba7194;font-weight:800;font-size:.9rem}.photo .missing span{font-size:2rem}.gallery-caption{font-size:.85rem;color:#9e7188}
+.gift{font-size:6rem;animation:bob 2s infinite}.cake-scene{position:relative;width:min(420px,100%);height:260px;margin:8px auto 12px;display:flex;align-items:flex-end;justify-content:center}.cake{position:relative;width:250px;height:125px;border-radius:18px 18px 28px 28px;background:linear-gradient(#ffc1d9 0 18%,#fff0f6 18% 28%,#ff9dbf 28%);box-shadow:inset 0 -12px #ed7fa7,0 16px 20px #a65c7b20}.cake:before{content:"";position:absolute;left:-12px;right:-12px;top:-12px;height:28px;border-radius:50%;background:#fff0f6;border:5px solid #ffb2cf}.cake:after{content:"";position:absolute;left:0;right:0;top:12px;height:18px;background:radial-gradient(ellipse at 20% 0,#fff 0 10px,transparent 11px),radial-gradient(ellipse at 50% 0,#fff 0 10px,transparent 11px),radial-gradient(ellipse at 80% 0,#fff 0 10px,transparent 11px)}
+.cake-label{position:absolute;top:75px;left:0;right:0;font-size:1rem;font-weight:1000;color:#b9477c;z-index:2}.candles{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);display:flex;gap:5px;align-items:flex-end;max-width:300px;justify-content:center;flex-wrap:wrap;width:290px}.candle{width:7px;height:31px;border-radius:3px;background:repeating-linear-gradient(45deg,#fff 0 5px,#f58eb5 5px 10px);position:relative}.flame{position:absolute;left:50%;top:-17px;transform:translateX(-50%);width:10px;height:16px;border-radius:60% 40% 55% 45%;background:#ffc94f;box-shadow:0 0 12px #ffb32e;animation:flicker .7s infinite alternate}.flame.off{display:none}.smoke{position:absolute;top:-25px;left:50%;font-size:1.2rem;opacity:0;animation:smoke 1.5s forwards}.cake-scene.blown .flame{display:none}.cake-scene.blown .smoke{opacity:1}.balloons{font-size:2rem;letter-spacing:8px;animation:rise 3s ease-out infinite}.wishes{font-size:1.2rem;color:#bd4c83;font-weight:900}.final-title{font-size:clamp(2rem,6vw,3.5rem)!important;text-shadow:0 3px #ffd6e7}.floating{position:fixed;bottom:-40px;left:var(--x);font-size:var(--s);pointer-events:none;z-index:5;animation:floatUp var(--d) linear forwards;opacity:.8}.confetti{position:fixed;top:-20px;left:var(--x);width:9px;height:14px;background:var(--c);z-index:10;animation:confetti var(--d) linear forwards;pointer-events:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes wiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}@keyframes appear{from{opacity:0;transform:translateY(20px) rotate(var(--r)) scale(.94)}to{opacity:1;transform:translateY(0) rotate(var(--r)) scale(1)}}@keyframes flicker{from{transform:translateX(-50%) rotate(-5deg) scale(.95)}to{transform:translateX(-50%) rotate(5deg) scale(1.08)}}@keyframes smoke{0%{transform:translate(-50%,0) scale(.6);opacity:.7}100%{transform:translate(-20%,-40px) scale(1.5);opacity:0}}@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}@keyframes confetti{to{transform:translateY(110vh) rotate(800deg);opacity:.9}}@keyframes rise{0%{transform:translateY(15px);opacity:.4}100%{transform:translateY(-20px);opacity:1}}
+@media(max-width:560px){.app{width:94vw;padding-top:14px}.card{min-height:620px;border-radius:24px;padding:24px 17px}.gallery{gap:7px}.photo{padding:5px;border-radius:15px}.photo img{border-radius:10px}.cake{width:210px}.candles{width:255px;bottom:120px;gap:4px}.candle{width:6px;height:27px}.top{font-size:.9rem}.sound{padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top"><div class="brand">🐾 MÈO CON GIAO QUÀ</div><button class="sound" id="musicBtn" aria-pressed="false">♫ Bật nhạc</button></header>
+  <div class="progress-wrap" aria-label="Tiến trình"><div class="progress" id="progress"></div></div>
+  <main class="card" id="stage" aria-live="polite"></main>
+  <p class="tiny" style="text-align:center">Một món quà nhỏ được làm riêng cho Hải Yến 💗</p>
+</div>
+<audio id="music" src="birthday.mp3" loop preload="auto"></audio>
+<script>
+const stages = [
+{eyebrow:"Bước 1 · Vị khách bất ngờ 🐾",emoji:"🐱",title:"Meo meo! Xin chào Hải Yến!",body:"Tớ mang đến cho Yến một món quà bí mật. Yến đã sẵn sàng khám phá chưa?",button:"Bắt đầu chuyến phiêu lưu"},
+{eyebrow:"Bước 2 · Lời chúc sinh nhật 💌",emoji:"💌",title:"Chúc mừng sinh nhật Yến!",body:"Chúc Yến tuổi mới luôn xinh đẹp, vui vẻ, bình an, gặp nhiều may mắn và thực hiện được những điều mình mong muốn.",button:"Đọc tiếp nhé!"},
+{eyebrow:"Bước 3 · Góc ảnh kỷ niệm 📸",emoji:"📸",title:"Những khoảnh khắc đáng yêu",body:"Yến ơi, đây là góc nhỏ dành riêng cho những khoảnh khắc đáng yêu của Yến. Mong rằng tuổi 22 sẽ mang đến thật nhiều kỷ niệm đẹp để Yến lưu giữ!",button:"Tiếp tục hành trình",gallery:true},
+{eyebrow:"Bước 4 · Hộp quà bí mật 🎁",emoji:"🎁",title:"Một chiếc hộp đầy yêu thương",body:"Yến xứng đáng nhận được thật nhiều yêu thương. Tớ mong mỗi ngày của Yến đều có những niềm vui nhỏ và những người chân thành ở bên.",button:"Mở bánh sinh nhật"},
+{eyebrow:"Bước 5 · Chiếc bánh tuổi 22 🎂",emoji:"🎂",title:"Happy 22nd Birthday, Hải Yến!",body:"Yến ơi, hôm nay Yến chính thức đón tuổi 22 rồi! Hãy cùng tớ thắp nến và chuẩn bị ước một điều thật đẹp nhé!",button:"🕯️ Thắp nến tuổi 22",cake:true,mode:"light"},
+{eyebrow:"Bước 6 · Thắp nến và ước nguyện ✨",emoji:"✨",title:"Ước một điều thật đẹp nhé",body:"Nhắm mắt lại, nghĩ về điều Yến mong muốn nhất và giữ điều ước ấy trong tim nhé. Mong mọi điều tốt đẹp sẽ tìm đến với Yến trong tuổi 22!",button:"💗 Tớ ước xong rồi!",cake:true,mode:"light"},
+{eyebrow:"Bước 7 · Thổi nến tuổi 22 🌬️",emoji:"🌬️",title:"Nào Hải Yến, hãy thổi nến!",body:"Hãy thổi nến để chào đón tuổi 22 nhé! Yến có thể thử thổi vào micro nếu trình duyệt hỗ trợ, hoặc bấm nút bên dưới.",button:"🎉 Thổi nến",cake:true,mode:"blow"},
+{eyebrow:"Bước 8 · Lời nhắn từ tớ 💌",emoji:"💗",title:"Gửi Yến của tuổi 22",body:"Chúc Yến tuổi 22 trưởng thành nhưng vẫn luôn giữ được nét đáng yêu của mình. Mong Yến đủ mạnh mẽ để theo đuổi ước mơ, đủ bình yên để tận hưởng cuộc sống và đủ yêu thương để luôn trân trọng chính mình. Chúc Yến có một tuổi mới thật rực rỡ!",button:"Mở món quà cuối cùng"},
+{eyebrow:"Bước 9 · Món quà cuối cùng 🎀",emoji:"🎀",title:"Một món quà nhỏ dành cho Yến",body:"Cảm ơn Yến đã khám phá chuyến phiêu lưu này. Tớ hy vọng món quà nhỏ sẽ khiến ngày sinh nhật tuổi 22 của Yến trở nên đặc biệt hơn một chút!",button:"Hoàn thành nhiệm vụ",gift:true},
+{eyebrow:"Bước 10 · Happy Birthday! 🎉",emoji:"🐱💖🎂",title:"HAPPY 22ND BIRTHDAY, HẢI YẾN!",body:"Chúc Yến tuổi 22 thật nhiều niềm vui, luôn bình an, gặp đúng người, làm điều mình thích và biến những ước mơ thành hiện thực. Mong tuổi 22 sẽ là một chương thật đẹp trong câu chuyện của Yến!",button:"💗 Phát lại món quà sinh nhật",final:true,gallery:true,cake:true,mode:"light"}
+];
+let current=0, candlesBlown=false;
+const stageEl=document.getElementById('stage'), progress=document.getElementById('progress'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
+function photoCard(n){return `<div class="photo" style="--r:${n===1?-3:n===2?2:-2}deg"><img src="hai-yen-${n}.png" alt="Ảnh kỷ niệm ${n} của Hải Yến" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="missing" style="display:none"><span>📷</span>Thêm ảnh<br>hai-yen-${n}.png</div></div>`}
+function cakeHTML(){return `<div class="cake-scene ${candlesBlown?'blown':''}" id="cakeScene"><div class="candles">${Array.from({length:22},(_,i)=>`<div class="candle"><span class="flame ${candlesBlown?'off':''}"></span>${candlesBlown?'<span class="smoke">〰</span>':''}</div>`).join('')}</div><div class="cake"><div class="cake-label">Tuổi 22 💗</div></div></div>`}
+function render(){
+ const s=stages[current]; progress.style.width=((current+1)/stages.length*100)+'%';
+ let extra='';
+ if(s.gallery) extra+=`<div class="gallery">${[1,2,3].map(photoCard).join('')}</div><div class="gallery-caption">Ba tấm ảnh nhỏ, thật nhiều kỷ niệm đẹp 💕</div>`;
+ if(s.cake) extra+=cakeHTML();
+ if(s.gift) extra+=`<div class="gift">🎁</div><div class="balloons">🎈 💖 🎈</div>`;
+ if(s.final) extra+=`<div class="balloons">🎈 🎉 🎈 💖 🎈</div>`;
+ stageEl.innerHTML=`<div class="eyebrow">${s.eyebrow}</div><div class="hero-emoji"><span class="cat">${s.emoji}</span></div><h1 class="${s.final?'final-title':''}">${s.title}</h1><p>${s.body}</p>${s.final?'<div class="note">🎂 Mong mọi điều dịu dàng nhất sẽ đến với Yến. Tuổi 22 thật rực rỡ nhé! 💖</div>':''}${extra}<div class="actions">${s.mode==='blow'&&!candlesBlown?'<button class="secondary" id="micBtn">🎤 Thử thổi bằng micro</button>':''}<button class="primary" id="nextBtn">${s.mode==='blow'&&candlesBlown?'Tiếp tục nhé 💗':s.button}</button></div><div class="tiny">${current+1} / ${stages.length} · Từng bước mở ra một điều bất ngờ</div>`;
+ document.getElementById('nextBtn').onclick=next;
+ const mic=document.getElementById('micBtn'); if(mic)mic.onclick=listenForBlow;
+ if(s.mode==='blow'&&candlesBlown){document.getElementById('nextBtn').textContent='Tiếp tục nhé 💗'}
+}
+function next(){
+ if(current===6&&!candlesBlown){candlesBlown=true; render(); confettiBurst(); return;}
+ if(current===stages.length-1){current=0;candlesBlown=false;render();return;}
+ current++; render();
+ if(current===4){startMusic();floatHearts(8)}
+ if(current===6)floatHearts(12);
+ if(current===9){confettiBurst();floatHearts(22)}
+}
+function startMusic(){music.play().then(()=>{musicBtn.textContent='♫ Tắt nhạc';musicBtn.setAttribute('aria-pressed','true')}).catch(()=>{musicBtn.textContent='♫ Bật nhạc'})}
+musicBtn.onclick=()=>{if(music.paused)startMusic();else{music.pause();musicBtn.textContent='♫ Bật nhạc';musicBtn.setAttribute('aria-pressed','false')}};
+function floatHearts(count=8){const symbols=['💗','💖','💕','✨','🐾'];for(let i=0;i<count;i++){const e=document.createElement('span');e.className='floating';e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.setProperty('--x',Math.random()*100+'vw');e.style.setProperty('--s',(16+Math.random()*22)+'px');e.style.setProperty('--d',(4+Math.random()*4)+'s');document.body.appendChild(e);setTimeout(()=>e.remove(),8500)}}
+function confettiBurst(){const colors=['#ff8fb8','#c8a7ff','#ffd36e','#9ee8d2','#ffb1a7'];for(let i=0;i<100;i++){const e=document.createElement('i');e.className='confetti';e.style.setProperty('--x',Math.random()*100+'vw');e.style.setProperty('--c',colors[i%colors.length]);e.style.setProperty('--d',(2+Math.random()*3)+'s');e.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),6000)}}
+async function listenForBlow(){
+ if(!navigator.mediaDevices?.getUserMedia){alert('Trình duyệt này chưa hỗ trợ micro. Yến hãy bấm nút “Thổi nến” nhé!');return}
+ try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});const ctx=new (window.AudioContext||window.webkitAudioContext)();const analyser=ctx.createAnalyser();const source=ctx.createMediaStreamSource(stream);source.connect(analyser);analyser.fftSize=256;const data=new Uint8Array(analyser.frequencyBinCount);let hits=0;const start=Date.now();const check=()=>{analyser.getByteTimeDomainData(data);let sum=0;for(const v of data)sum+=Math.abs(v-128);const avg=sum/data.length;if(avg>16)hits++;if(hits>=4){stream.getTracks().forEach(t=>t.stop());ctx.close();candlesBlown=true;render();confettiBurst();floatHearts(18)}else if(Date.now()-start>10000){stream.getTracks().forEach(t=>t.stop());ctx.close();alert('Chưa nhận ra tiếng thổi. Yến có thể bấm nút “Thổi nến” nhé!')}else requestAnimationFrame(check)};check()}catch(e){alert('Không thể mở micro. Yến hãy cho phép quyền micro hoặc bấm nút “Thổi nến” nhé!')}
+}
+render();
+</script>
+</body>
+</html>
